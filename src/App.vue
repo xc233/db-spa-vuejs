@@ -1,29 +1,54 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <CommonHeader></CommonHeader>
+        <router-view class="content"/>
+        <CommonFooter :menuList ="menuList"></CommonFooter>
     </div>
-    <router-view/>
-  </div>
 </template>
-
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import CommonHeader from "@/components/CHeader.vue";
+import CommonFooter from "@/components/CommonFooter.vue";
+export default {
+    data(){
+        return {
+            menuList:[{
+                name:'电影',
+                path:'/movie',
+                bgColor:'rgb(33, 150, 243)',
+                title:'豆瓣电影'
+            },{
+                name:'音乐',
+                path:'/music',
+                bgColor:'rgb(0, 150, 136)',
+                title:'豆瓣电台'
+            },{
+                name:'书籍',
+                path:'/book',
+                bgColor:'rgb(121, 85, 72)',
+                title:'豆瓣读书'
+            },{
+                name:'图片',
+                path:'/photo',
+                bgColor:'#3f51b5',
+                title:'图库'
+            }],
+        }
+    },
+    components: {
+        CommonHeader,
+        CommonFooter
+    },
+    created(){
+        var path = this.$route.path;
+        var menu = this.menuList.filter(ele=>{
+            return ele.path == path;
+        });
+        this.$store.dispatch('changeBg',menu[0]);
     }
-  }
-}
+};
+</script>
+<style lang="scss">
+    .content{
+        margin: 1rem 0;
+    }
 </style>
