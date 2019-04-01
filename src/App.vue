@@ -14,22 +14,23 @@ export default {
             menuList:[{
                 name:'电影',
                 path:'/movie',
-                bgColor:'rgb(33, 150, 243)',
+                // bgColor:'rgb(33, 150, 243)',
+                bgColor:'rgb(47, 54, 64)',
                 title:'豆瓣电影'
             },{
                 name:'音乐',
                 path:'/music',
-                bgColor:'rgb(0, 150, 136)',
+                bgColor:'rgb(194, 54, 22)',
                 title:'豆瓣电台'
             },{
                 name:'书籍',
                 path:'/book',
-                bgColor:'rgb(121, 85, 72)',
+                bgColor:'rgb(109, 33, 79)',
                 title:'豆瓣读书'
             },{
                 name:'我的',
                 path:'/me',
-                bgColor:'#3f51b5',
+                bgColor:'#007880',
                 title:'个人中心'
             }],
         }

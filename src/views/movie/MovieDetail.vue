@@ -1,9 +1,9 @@
 <template>
 <div class="movie-detail" v-if="show">
-    <h3>名称:{{movieDetail.title}}</h3>
+    <h3>电影名称：{{movieDetail.title}}</h3>
     <img :src="movieDetail.images.large">
     <p>id：{{movieDetail.id}}</p>
-    <p>简介:{{movieDetail.summary}}</p>
+    <p>简介：{{movieDetail.summary}}</p>
 </div>    
 </template>
 <script>
@@ -28,9 +28,20 @@ export default {
 </script>
 <style lang="scss">
     .movie-detail{
+        h3{
+            // text-indent: 10px;
+            text-align: center;
+            padding-top: 14px;
+        }
         img{
             border: 1px solid #000;
             margin-left: 0.8rem;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        p{
+            text-indent: 30px;
+            padding: 0px 10px;
         }
     }
 </style>

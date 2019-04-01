@@ -54,6 +54,7 @@ export default {
         //    }
            )
                 .then((res)=>{
+                    // console.log(res.data);
                     this.movieList =[...this.movieList,...res.data.subjects];
                     this.isShow = false;
                     if(res.data.subjects.length < 5){

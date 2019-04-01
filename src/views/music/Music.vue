@@ -41,4 +41,8 @@ export default {
     }
 }
 </script>
-
+<style lang="scss">
+    .aplayer{
+        margin: 0px;
+    }
+</style>

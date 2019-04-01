@@ -5,8 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    bgColor:'rgb(33, 150, 243)',
-    title:'Movie'
+    bgColor:'rgb(47, 54, 64)',
+    title:'豆瓣电影'
   },
   mutations: {
     changeBg(state,menu){
