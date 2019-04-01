@@ -34,6 +34,7 @@ export default {
             var scollTop = document.documentElement.scrollTop;
             var scollHeight = document.documentElement.scrollHeight;
             var clientHeight = document.documentElement.clientHeight;
+            // 加了一个this.isShow判断 是因为当loding出现的时候会重新计算scollTop 拉到底再次请求 
             if(scollTop + clientHeight === scollHeight && !this.isEnd && this.isShow == false){
                 this.isShow = true;
                 this.getData();  
@@ -43,7 +44,15 @@ export default {
     methods:{
         getData(){
             // console.log(this.i++);
-           Axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?start='+this.movieList.length+'&count=5')
+           Axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?start='+this.movieList.length+'&count=5'
+        //    前端浏览器不支持跨域请求 无法添加referer 需要后端
+        //    ,{
+        //        headers:{
+        //            'referer':'https://movie.douban.com/',
+        //            host: 'movie.douban.com'
+        //        }
+        //    }
+           )
                 .then((res)=>{
                     this.movieList =[...this.movieList,...res.data.subjects];
                     this.isShow = false;
@@ -53,7 +62,7 @@ export default {
                     }
             });
 
-        // 豆瓣API限制每小时次数，提取json放在了myjson上用作备用
+        // 豆瓣API限制每小时请求次数，提取json放在了myjson上用作备用
         // Axios.get('https://api.myjson.com/bins/sx4oi')
         //       .then((res)=>{
         //           var arr = res.data.subjects.slice(this.movieList.length,this.movieList.length+5);
@@ -65,7 +74,8 @@ export default {
         //       });
         },
         getDetail(movie){
-            console.log(movie.id)
+            // console.log(movie.id);
+            this.$router.push('/movie-detail/'+movie.id);
         }
     },
     components:{

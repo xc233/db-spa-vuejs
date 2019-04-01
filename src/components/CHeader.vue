@@ -1,6 +1,6 @@
 <template>
     <div class="header" :style="{background:bgColor}">
-        <span class="header-home">首页</span>
+        <!-- <span class="header-home">首页</span> -->
         <h1 class="header-title">{{title}}</h1>
     </div>
 </template>
@@ -18,10 +18,10 @@ export default {
         position: fixed;
         top:0;
         line-height: 1rem;
-        &-home{
-            font-size: 16px;
-            margin-left: 20px;
-        }
+        // &-home{
+        //     font-size: 16px;
+        //     margin-left: 20px;
+        // }
         &-title{
             font-size: 24px;
             position: absolute;

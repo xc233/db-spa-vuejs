@@ -27,10 +27,10 @@ export default {
                 bgColor:'rgb(121, 85, 72)',
                 title:'豆瓣读书'
             },{
-                name:'图片',
-                path:'/photo',
+                name:'我的',
+                path:'/me',
                 bgColor:'#3f51b5',
-                title:'图库'
+                title:'个人中心'
             }],
         }
     },
